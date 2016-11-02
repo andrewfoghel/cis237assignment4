@@ -124,5 +124,82 @@ namespace cis237assignment4
             //return the completed string
             return returnString;
         }
+
+        //Sorting droid collection by categorizing
+        public void sortByModel()
+        {
+            //create 4 stacks for each type of droid 
+            Stack<IDroid> ProtocolStack = new Stack<IDroid>();
+            Stack<IDroid> UtilityStack = new Stack<IDroid>();
+            Stack<IDroid> JanitorStack = new Stack<IDroid>();
+            Stack<IDroid> AstromechStack = new Stack<IDroid>();
+
+            //Foreach loop that gets model for each droid in the collection and compares it to put it into the proper stack
+            foreach (IDroid x in droidCollection)
+            {
+
+                if (x != null)
+                {
+                    if (x.Model.Equals("Astromech"))
+                    {
+                        AstromechStack.push(x);
+                    }
+                    if (x.Model.Equals("Janitor"))
+                    {
+                        JanitorStack.push(x);
+                    }
+                    if (x.Model.Equals("Utility"))
+                    {
+                        UtilityStack.push(x);
+                    }
+                    if (x.Model.Equals("Protocol"))
+                    {
+                        ProtocolStack.push(x);
+                    }
+                }
+            }
+            //Create new queue to store stack in desired order
+            Queue<IDroid> DroidQueue = new Queue<IDroid>();
+
+            //enqueue Astromechs
+            while (!AstromechStack.isEmpty())
+            {
+                DroidQueue.enqueue(AstromechStack.pop());
+            }
+            //enqueue janitors
+            while (!JanitorStack.isEmpty())
+            {
+                DroidQueue.enqueue(JanitorStack.pop());
+            }
+            //enqueue utilitys
+            while (!UtilityStack.isEmpty())
+            {
+                DroidQueue.enqueue(UtilityStack.pop());
+            }
+            //enqueue protocols
+            while (!ProtocolStack.isEmpty())
+            {
+                DroidQueue.enqueue(ProtocolStack.pop());
+            }
+
+            //Create new arr to store sorted values in queue 
+            IDroid[] arr = new IDroid[lengthOfCollection];
+            //for loop to transfer values from queue to arr
+            for(int i = 0; i < lengthOfCollection; i++)
+            {
+                arr[i] = DroidQueue.dequeue();
+            }
+            // set original array droidcollection equal to arr to replace unsorted values with sorted values
+            droidCollection = arr;
+
+
+        }
+
     }
 }
+
+  
+        
+
+    
+

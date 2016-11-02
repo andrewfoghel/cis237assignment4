@@ -31,7 +31,8 @@ namespace cis237assignment4
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Add a new droid to the system");
             Console.WriteLine("2. Print the list of droids out");
-            Console.WriteLine("3. Exit the program");
+            Console.WriteLine("3. Sort By Model");
+            Console.WriteLine("4. Exit");
         }
 
         //Method to get a menu choice
@@ -64,7 +65,7 @@ namespace cis237assignment4
             int choice = this.GetMenuChoice();
 
             //If the choice is not valid, loop until it is valid, or the user cancels the operation
-            while(choice < 1 || choice > 4)
+            while (choice < 1 || choice > 4)
             {
                 //Prompt for a valid choice
                 this.displayColorSelection();
@@ -73,7 +74,7 @@ namespace cis237assignment4
 
             //Check the choice against the possibilities
             //If there is one found, work on getting the next piece of information.
-            switch(choice)
+            switch (choice)
             {
                 case 1:
                     this.chooseMaterial("Bronze");
@@ -94,6 +95,12 @@ namespace cis237assignment4
         {
             Console.WriteLine();
             Console.WriteLine(this.droidCollection.GetPrintString());
+        }
+
+        //method to sort and print by model
+        public void sortAndPrintByModel()
+        {
+            droidCollection.sortByModel();
         }
 
         //Display the Model Selection
@@ -147,7 +154,7 @@ namespace cis237assignment4
             Console.WriteLine();
             bool option3 = this.displayAndGetOption("Does the droid have an arm?");
 
-            bool[] returnArray = {option1, option2, option3};
+            bool[] returnArray = { option1, option2, option3 };
             return returnArray;
         }
 
@@ -224,12 +231,12 @@ namespace cis237assignment4
 
             //Check to see which choice was chosen. Call choose model and pass the color an material over
             //to the method to get the model
-            switch(choice)
+            switch (choice)
             {
                 case 1:
                     this.chooseModel(Color, "Carbonite");
                     break;
-                        
+
                 case 2:
                     this.chooseModel(Color, "Vanadium");
                     break;
@@ -269,7 +276,7 @@ namespace cis237assignment4
                     break;
 
                 case 3:
-                    this.chooseOptions(Color, Material, "Janatorial");
+                    this.chooseOptions(Color, Material, "Janitor");
                     break;
 
                 case 4:
@@ -308,7 +315,7 @@ namespace cis237assignment4
             bool[] standardOptions = this.displayAndGetUtilityOptions();
 
             //Based on the model chosen, figure out the remaining information needed.
-            switch(Model)
+            switch (Model)
             {
                 //If it is a utility
                 case "Utility":
@@ -334,5 +341,6 @@ namespace cis237assignment4
             }
         }
 
+        
     }
 }
