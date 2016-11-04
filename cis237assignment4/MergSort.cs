@@ -10,38 +10,45 @@ namespace cis237assignment4
     {
         public void merge(IComparable[] arr, int low, int mid, int high)
         {
-            //Starting Index
+          
+            //create arrays to sort left and right values
             IComparable[] aux = new IComparable[arr.Length];
             int i = low;
             int j = mid + 1;
+
             //copy array
-            for (int k = low; k <= high; k++)
+            for (int k = 0; k<arr.Length; k++)
             {
-                aux[k] = arr[k];
+                    aux[k] = arr[k];   
             }
 
-            for (int k = 0; k <= high; k++)
+            for(int k = 0; k <= high; k++)
             {
-
-
-                if (i > mid)
+                if (aux[k]!=null)
                 {
-                    arr[k] = aux[j++];
+                    if (i > mid)
+                    {
+                        arr[k] = aux[j++];
+                    }
+                    else if (j > high)
+                    {
+                        arr[k] = aux[i++];
+                    }
+                    else if (aux[j].CompareTo(aux[i]) < 0)
+                    {
+                        arr[k] = aux[j++];
+                    }
+                    else
+                    {
+                        arr[k] = aux[i++];
+                    }
                 }
-                else if (j > high)
-                {
-                    arr[k] = aux[i++];
-                }
-                else if (aux[i].CompareTo(aux[j]) < 0)
-                {
-                    arr[k] = aux[j++];
-                }
-                else
-                {
-                    arr[k] = aux[i++];
-                }
-
             }
+
+
+
+
+            
         }
 
         public void sort(IComparable[] arr, int low, int high)

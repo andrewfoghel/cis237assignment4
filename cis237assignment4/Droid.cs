@@ -86,9 +86,6 @@ namespace cis237assignment4
 
             if (otherDroid != null)
             {
-                this.CalculateTotalCost();
-                otherDroid.CalculateTotalCost();
-
                 return this.totalCost.CompareTo(otherDroid.TotalCost);
             }
             else

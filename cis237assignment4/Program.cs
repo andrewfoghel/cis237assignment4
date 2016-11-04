@@ -90,12 +90,6 @@ namespace cis237assignment4
 
         }
 
-
-
-                
-
-
-
                 //Re-display the menu, and re-prompt for the choice
                 userInterface.DisplayMainMenu();
                 choice = userInterface.GetMenuChoice();
