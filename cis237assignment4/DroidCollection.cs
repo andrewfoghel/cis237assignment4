@@ -197,6 +197,7 @@ namespace cis237assignment4
         {
             MergSort sorter = new MergSort();
             sorter.sort(droidCollection, 0,droidCollection.Length);
+
         }
 
     }
