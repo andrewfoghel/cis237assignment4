@@ -73,9 +73,30 @@ namespace cis237assignment4
                     "Color: " + this.color + Environment.NewLine;
         }
 
+        //implement compareTo method 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            if (obj == null)
+            {
+                return 1;
+            }
+            IDroid otherDroid = obj as IDroid;
+            this.CalculateTotalCost();
+            otherDroid.CalculateTotalCost();
+
+            if (otherDroid != null)
+            {
+                this.CalculateTotalCost();
+                otherDroid.CalculateTotalCost();
+
+                return this.totalCost.CompareTo(otherDroid.TotalCost);
+            }
+            else
+            {
+                throw new ArgumentException("Object is not Droid");
+            }
         }
-    }
-}
+     }       
+  }
+   
+

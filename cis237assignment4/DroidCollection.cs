@@ -191,8 +191,12 @@ namespace cis237assignment4
             }
             // set original array droidcollection equal to arr to replace unsorted values with sorted values
             droidCollection = arr;
+        }
 
-
+        public void sortByTotalCost()
+        {
+            MergSort sorter = new MergSort();
+            sorter.sort(droidCollection, 0,droidCollection.Length);
         }
 
     }

@@ -32,7 +32,8 @@ namespace cis237assignment4
             Console.WriteLine("1. Add a new droid to the system");
             Console.WriteLine("2. Print the list of droids out");
             Console.WriteLine("3. Sort By Model");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Sort By TotalCost");
+            Console.WriteLine("5. Exit");
         }
 
         //Method to get a menu choice
@@ -98,9 +99,14 @@ namespace cis237assignment4
         }
 
         //method to sort and print by model
-        public void sortAndPrintByModel()
+        public void sortModel()
         {
             droidCollection.sortByModel();
+        }
+        //method to sort by total cost using mergsort
+        public void sortCost()
+        {
+            droidCollection.sortByTotalCost();
         }
 
         //Display the Model Selection
@@ -110,7 +116,7 @@ namespace cis237assignment4
             Console.WriteLine("What type of droid is it?");
             Console.WriteLine("1. Protocol");
             Console.WriteLine("2. Utility");
-            Console.WriteLine("3. Janitorial");
+            Console.WriteLine("3. Janitor");
             Console.WriteLine("4. Astromech");
             Console.WriteLine("5. Cancel This Operation");
         }
