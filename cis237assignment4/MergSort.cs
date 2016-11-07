@@ -8,25 +8,14 @@ namespace cis237assignment4
 {
     class MergSort
     {
-        public void merge(IComparable[] arr, int low, int mid, int high)
+        public void merge(IComparable[] arr,int low, int mid, int high)
         {
-            int counter = 0;
-            foreach(IComparable x in arr)
-            {
-                if (x != null)
-                {
-                    counter++;
-                }
-            }
-
             //create arrays to sort left and right values
-            IComparable[] aux = new IComparable[arr.Length];
             int i = low;
             int j = mid + 1;
-
-            high = counter;
+            IComparable[] aux = new IComparable[arr.Length];
             //copy array
-            for (int k = 0; k<counter; k++)
+            for (int k = 0; k<=high; k++)
             {
                 aux[k] = arr[k];   
             }
@@ -54,24 +43,18 @@ namespace cis237assignment4
             } 
         }
 
-        public void sort(IComparable[] arr, int low, int high)
+        public void sorting(IComparable[] arr,int low, int high)
         {
-
-            foreach (IComparable x in arr)
-            {
-                if (x != null)
-                {
                     if (high <= low)
                     {
                        return;
                     }
                     int mid = low + (high - low) / 2;
-                    sort(arr, low, mid);
-                    sort(arr, mid + 1, high);
-                    merge(arr, low, mid, high);
-                }
-            }
+                    sorting(arr,low, mid);
+                    sorting(arr,mid + 1, high);
+                    merge(arr,low, mid, high);
         }
+
     }
 
 }

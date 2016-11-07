@@ -22,13 +22,13 @@ namespace cis237assignment4
             //Astromech
             droidCollection.Add("Vanadium", "Astromech", "Silver", true, true, true, false, 4);
             //Utility
-            droidCollection.Add("Quadranium", "Utility", "Gold", true, false, true);
+            droidCollection.Add("Quadranium", "Utility", "Gold", true,true, true);
             //Janitor
             droidCollection.Add("Carbonite", "Janitor", "Silver", true, true, false, false, true);
           
             //Set 2
             //Protocol
-            droidCollection.Add("Vanadium", "Protocol", "Gold", 3);
+            droidCollection.Add("Vanadium", "Protocol", "Gold", 7);
             //Astromech
             droidCollection.Add("Quadranium", "Astromech", "Silver", false, true, true, false, 5);
             //Utility
@@ -38,7 +38,7 @@ namespace cis237assignment4
 
             //Set 3
             //Protocol
-            droidCollection.Add("Vanadium", "Protocol", "Gold", 1);
+            droidCollection.Add("Vanadium", "Protocol", "Gold", 6);
             //Astromech
             droidCollection.Add("Vanadium", "Astromech", "Bronze", true, false, false, false, 2);
             //Utility

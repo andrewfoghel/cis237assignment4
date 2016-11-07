@@ -196,7 +196,13 @@ namespace cis237assignment4
         public void sortByTotalCost()
         {
             MergSort sorter = new MergSort();
-            sorter.sort(droidCollection, 0,droidCollection.Length);
+            IDroid[] realDroids = new IDroid[lengthOfCollection];
+            for(int i=0; i < realDroids.Length; i++)
+            {
+                realDroids[i] = droidCollection[i];
+            }
+            sorter.sorting(realDroids, 0, realDroids.Length);
+            
 
         }
 
