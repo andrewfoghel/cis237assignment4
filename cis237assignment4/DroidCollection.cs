@@ -192,18 +192,30 @@ namespace cis237assignment4
             // set original array droidcollection equal to arr to replace unsorted values with sorted values
             droidCollection = arr;
         }
-
+        //Sort by total cost
         public void sortByTotalCost()
         {
+            //Create a new Mergsort object
             MergSort sorter = new MergSort();
+            //Create a new array to hold only the valid droids which would be the length of the collection
             IDroid[] realDroids = new IDroid[lengthOfCollection];
-            for(int i=0; i < realDroids.Length; i++)
-            {
-                realDroids[i] = droidCollection[i];
-            }
-            sorter.sorting(realDroids, 0, realDroids.Length);
             
-
+            //copy the valid indexs into the array 
+            for(int i=0; i <=realDroids.Length; i++)
+           {
+                //copy only if null
+               if (droidCollection[i] != null)
+            {
+                   realDroids[i] = droidCollection[i];
+             }
+           }
+            //create a new array to hold the sorted values
+            IComparable[] x = sorter.merge(realDroids, 0, realDroids.Length);
+            //print out the values 
+            foreach (Droid y in x)
+            {
+                Console.WriteLine("\n*****************************\n" + y.ToString()+"\n"+ y.TotalCost+"\n*****************************");
+            }
         }
 
     }

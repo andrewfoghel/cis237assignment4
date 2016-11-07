@@ -8,54 +8,55 @@ namespace cis237assignment4
 {
     class MergSort
     {
-        public void merge(IComparable[] arr,int low, int mid, int high)
+        public IComparable[] merge(IComparable[] arr, int low, int high)
         {
-            //create arrays to sort left and right values
-            int i = low;
-            int j = mid + 1;
-            IComparable[] aux = new IComparable[arr.Length];
-            //copy array
-            for (int k = 0; k<=high; k++)
+            //if array is single is a single index return that array
+            if (high - low < 2)
             {
-                aux[k] = arr[k];   
+                return new IComparable[] { arr[low] };
             }
+            //calculate middle of array 
+            int middle = low + ((high - low) / 2);
+            //new Icomparable array to store values from the left
+            IComparable[] left = merge(arr, low, middle);
+            //new icomparable array to store values from the right
+            IComparable[] right = merge(arr, middle, high);
 
-            for(int k = 0; k <=high; k++)
-            {
-                
-                    if (i > mid)
+           
+            //New Icomparable array to stor the sorted values
+            IComparable[] results = new IComparable[left.Length + right.Length];
+            // int for index of the left
+            int indexL = 0;
+            //int for index of the right
+            int indexR = 0;
+            //I for loops
+            int i = 0;
+            //for loop to start sorting and merging 
+            for (; indexL < left.Length && indexR < right.Length; i++)
+                {
+                    if (left[indexL].CompareTo(right[indexR]) < 0)
                     {
-                        arr[k] = aux[j++];
-                    }
-                    else if (j > high)
-                    {
-                        arr[k] = aux[i++];
-                    }
-                    else if (aux[j].CompareTo(aux[i]) < 0)
-                    {
-                        arr[k] = aux[j++];
+                        results[i] = left[indexL];
+                        indexL++;
                     }
                     else
                     {
-                        arr[k] = aux[i++];
+                        results[i] = right[indexR];
+                        indexR++;
                     }
-                
-            } 
-        }
+                }
+                //copy remaining elements
+                while (indexL < left.Length)
+                {
+                    results[i++] = left[indexL++];
+                }
+                while (indexR < right.Length)
+                {
+                    results[i++] = right[indexR++];
+                }
+                return results;
+            }
 
-        public void sorting(IComparable[] arr,int low, int high)
-        {
-                    if (high <= low)
-                    {
-                       return;
-                    }
-                    int mid = low + (high - low) / 2;
-                    sorting(arr,low, mid);
-                    sorting(arr,mid + 1, high);
-                    merge(arr,low, mid, high);
-        }
 
+        }
     }
-
-}
-

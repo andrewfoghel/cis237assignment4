@@ -1,7 +1,7 @@
 # Assignment 4 - Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
 ## Due: 11-08-2016
 
-## Author
+## Andrew Foghel
 
 
 
@@ -83,11 +83,11 @@ Be sure to think about what the time complexity for the bucket sort will be. Thi
 | README                                  | 5      |
 | Total                                   | 100    |
 
-## Outside Resources Used
+## StackOverFlow, Youtube, Book website
 
 
 
-## Known Problems, Issues, And/Or Errors in the Program
+## When I sort by modeling first, and then right after try to sort by total cost I get a NullException Error. On top of that for some reason the program won’t add Janitor droids to the stack.
 
 
 
