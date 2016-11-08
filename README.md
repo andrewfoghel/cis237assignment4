@@ -87,7 +87,7 @@ Be sure to think about what the time complexity for the bucket sort will be. Thi
 
 
 
-## When I sort by modeling first, and then right after try to sort by total cost I get a NullException Error. On top of that for some reason the program won’t add Janitor droids to the stack.
+## No Known Errors
 
 
 
