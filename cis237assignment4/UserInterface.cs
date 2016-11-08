@@ -329,7 +329,7 @@ namespace cis237assignment4
                     break;
 
                 //If it is a Janatorial
-                case "Janatorial":
+                case "Janitor":
                     //Get the rest of the options for a Janatorial droid.
                     bool[] janatorialOptions = this.displayAndGetJanatorialOptions();
                     //Add it to the collection

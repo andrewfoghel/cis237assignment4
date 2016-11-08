@@ -189,8 +189,11 @@ namespace cis237assignment4
             {
                 arr[i] = DroidQueue.dequeue();
             }
-            // set original array droidcollection equal to arr to replace unsorted values with sorted values
-            droidCollection = arr;
+            // Print new sorted array 
+            foreach(IDroid y  in arr)
+            {
+                Console.WriteLine("***************************\n" + y.ToString() +"\n"+ y.TotalCost + "\n***************************");
+            }
         }
         //Sort by total cost
         public void sortByTotalCost()
@@ -212,7 +215,7 @@ namespace cis237assignment4
             //create a new array to hold the sorted values
             IComparable[] x = sorter.merge(realDroids, 0, realDroids.Length);
             //print out the values 
-            foreach (Droid y in x)
+            foreach (IDroid y in x)
             {
                 Console.WriteLine("\n*****************************\n" + y.ToString()+"\n"+ y.TotalCost+"\n*****************************");
             }
